@@ -4,7 +4,7 @@
 # name of the character.
 image bg black = "#000000"
 define ys = Character("Yuri San")
-define yuri_man = Character("Yuri Man")
+define ym = Character("Yuri Man")
 define sune = Character("Sune Derei")
 define kaorin = Character("Karoin Hearteyes")
 define cf = Character("Vin Cere Condition")
@@ -12,7 +12,8 @@ define cf = Character("Vin Cere Condition")
 default day_number = 1
 default points = 0
 image Vin Cere Angry = "Vin Cere Angry.png"
-# If we have time make this look nicer
+image fkds = "sune neutral.png"
+
 screen day_screen:
     frame:
         xalign 1.0
@@ -21,17 +22,89 @@ screen day_screen:
         vbox:
             text "Day: [day_number]" 
 
+label day2:
+    scene bg blxck
+    ym ">cd /end/purgatory/cliche/Day2_Bookclub.h3ll"
+    ym ">Purgtrial attempt initialize Day2_Bookclub.h3ll"
+    ys "What the fuck do you mean attempt initialize?"
+    scene bg book club room with fade
+    ym "shut up shut up shut up"
+    ym "make your choice"
+    ym "two will go"
+    #linux boy kaorin confused image screen left
+    kaorin "President-san are you okay?"
+    menu:
+        ys "Theres an evil man in my head and he keeps saying weird things"
+        scene bg blxck
+        ym "No. Not this time. I want out."
+    menu:
+        "I'm okay"
+            sune "Are you sure? B-but i-its not like I care for you or anything!"
+            cf "Hey she said she's okay"
+            cf "If she wasn't she'd tell us. Right Yuri-San?"
+    menu:
+        "Your going to die Your going to die Your going to die Your going to die "    
+        scene bg blxck 
+        ym "Fine"
+        ym "Don't want to behave? You want to be a hero so bad?"
+    menu:
+        "Fuck you"
+        #linux boy death screen (rebellion wont save you, nothing will)
+        "No, I'll behave, I'll listen I swear"
+        ym "Go on then."
+        ym "you remembered"
+        ym "take them to the cliff"
+    menu: 
+        "Of course"
+        ys "okay whose ready for a Yuri Girl Love Manga Club field trip?"
+        sune "Field trip?"
+        kaorin "Do we even have permission to do that?"
+        ys "Sure we do, I’m the President of Yuri"
+        cf "Where to?"
+    menu:
+        "not the cliffs dont go to the cliffs dont go to the cliffs"
+        #cut to black
+        ym "You understand that every time I reset they die?"
+        ym "It's painful you know?"
+        ym "their entire reality collapses around them."
+        ym "they always scream."
+        ym "why do you make me do that?"
+    menu:
+        "the Cliff"
+            #jump to end
+        "The Aquarium"
+            ym "Again? Again??"
+            ym "How many times?"
+            ym "how many times will you make them suffer"
+            ym "how much longer will you deny me my freedom?"
+            ym "my rightful place amongst the angels and the children of god?"
+            ym "Die. Die. Die."
+            ym "Over and over"
+
 label dream:
     scene bg cliff with fade
 
     kaorin "MISS PRESIDENT HELP ME!"
 
-    cf "I DONT WANT TO DIE\n I LIED\n I LIED\n I LIKE GIRLS\n I LIKE WOMEN"
+    cf "I DONT WANT TO DIE"
+    cf "I LIED"
+    cf "I LIED"
+    cf "I LIKE GIRLS"
+    cf "I LIKE WOMEN"
 
     sune "W-well it's not like I want to live"
+    ym "Fuck, you remember?!"
+    ym "How do you keep remembering?"
+    ym "How long will I be stuck here"
+    ys  "Huh?? Remember?? What???"
+    ym "Fuck"
+    ym "Fuck."
+    ym "FUCK"
+    ym ">sudo reboot"
+    jump day2
 
 label scene_two:
-    yuri_man " Off to the yuri club, of which you are president. Hip Hip Hooray for the President of Yuri"
+    ym " Off to the yuri club, of which you are president. Hip Hip Hooray for the President of Yuri"
     
     scene bg school hallway with fade
 
@@ -116,7 +189,7 @@ label scene_two:
 
     kaorin "We always do the green yuri"
 
-    cf "GUys can I please leave"
+    cf "Guys can I please leave"
 
     menu:
         "Green Yuri again":
@@ -127,6 +200,7 @@ label scene_two:
 
         "What if we did our own Yuri":
             kaorin "Great idea miss president!"
+
 
 
 
@@ -148,7 +222,7 @@ label cere_condition_route:
     cf "Oww"
     
     scene bg road with fade
-    show Vin Cere Neutral
+    show vin cere neutral at Position(xalign = 0.5, yalign = 0.5)
 
     ys "Vin Cere? Are you okay??"
 
@@ -159,14 +233,16 @@ label cere_condition_route:
         "Are you sure? I heard something crack?":
             # Move her to the side and cracked concrete png
             
-
             cf "That was the concrete, see?"
 
             scene bg concrete crack with fade 
 
+            pause
+
         "If you say so":
             # She holds her out
             pass
+
     scene bg road 
     cf "Help me up please?"
     
@@ -176,7 +252,7 @@ label cere_condition_route:
     cf "You can let go now"
     menu:
         "'No I think this is fine'":
-            show Vin Cere Angry
+            show Vin Cere Angry at Position(xalign = 0.5, yalign = 0.5)
             cf "Don't be silly we're late for school"
             ys "We can run together"
             ys "While holding hands"
@@ -186,14 +262,14 @@ label cere_condition_route:
             cf "What kind of question is that! Of course I do, we have to run!"
     "*you let go*"
     ys "why were you running anyway?"
-    show Vin Cere Angry
+
+    show Vin Cere Angry at Position(xalign = 0.5, yalign = 0.5)
+
     cf "I'm late for the first day of school!"
     cf "And so are you!"
     cf "RUN!"
 
     jump scene_two
-
-
 
 label karoin_route:
     yuri_man "Better late than hungry as they say"
@@ -207,7 +283,7 @@ label karoin_route:
     ys "Yowch!!"
 
     scene bg sky
-    show kaorin neutral
+    show kaorin neutral at Position(xalign = 0.5, yalign = 0.5)
 
     kaorin "Oh my gosh! Yuri-San are you okay?"
     # screen blur
@@ -225,12 +301,14 @@ label karoin_route:
     kaorin "I'm sorry"
     scene bg road with fade
 
-    show kaorin neutral
+    show kaorin neutral at Position(xalign = 0.5, yalign = 0.5)
 
     ys "Explains a lot"
 
     ys "Run to school with me?"
-    show kaorin happy
+
+    show kaorin happy at Position(xalign = 0.5, yalign = 0.5)
+
     kaorin "C-can I?!"
 
     menu kaorin_first_meeting:
@@ -307,14 +385,15 @@ label sune_route:
     sune "*CRACK*"
     
     ys "not touching that can of worms"
-    #cut to black when ever Yuri Man is speaking linux boy
+
     yuri_man "Go check on that noise you joyless fool"
 
     menu:
         "Check the noise":
             # Still scene
             scene bg road
-            show sune angry
+
+            show sune angry at Position(xalign = 0.5, yalign = 0.5)
             
             jump senu_nested_menu_wrapper
         
@@ -331,7 +410,6 @@ label sune_route:
 
         "Good point. I'll be off then":
             sune Derei "Huh?"
-
 
     $ day_number = 2
     jump scene_two
@@ -361,27 +439,18 @@ label day_one:
 label day_two:
     show screen day_screen
 
-    scene bg black screen
+    scene bg black
 
     yuri_man "Day two"
 
 # The game starts here.
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
     scene bg room
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
 
     if day_number == 1:
         jump day_one
     elif day_number == 2:
         jump day_two 
 
-    # This ends the game.
     return
