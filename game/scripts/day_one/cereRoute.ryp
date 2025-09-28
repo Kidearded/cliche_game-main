@@ -1,0 +1,67 @@
+label cere_condition_nested_menu_1:
+    menu:
+        "No I think this is fine":
+            childhood_friend "B-but were late for school! We need to run!"
+
+            yuri_san "We can run while holding hands "
+
+            childhood_friend "Shut it! Stop messing with me! Lets go"
+
+        "Do you want me to let go?":
+            childhood_friend " What kind of question is that! Of course I do, we have to run! "
+
+        "Why were you running anyway?":
+            childhood_friend " I’m late for school! And so are YOU! Lets run together."
+
+label cere_condition_route:
+    yuri_man "This is a classic"
+    
+    # Add shaking of road
+    scene bg road with vpunch
+    "*running*"
+    scene bg road with vpunch
+    "*running*"
+    scene bg road with vpunch
+    "*running*"
+
+    scene bg bang with vpunch
+    "BANG!" # Possible sound effect here
+    
+    childhood_friend "Oww"
+
+    scene bg road with fade
+    show vin cere condition hurt
+
+    yuri_san "Vin Cere Condition? Are you okay??"
+
+    childhood_friend "Hiii! I'm fine"
+
+    # No effects in this choice
+    menu:
+        "I heard something crack?":
+            childhood_friend "That was the concrete, see?"
+            
+            scene bg concrete crack with fade
+            # Move her to the side and cracked concrete png
+
+            childhood_friend "That was the concrete, see?"
+
+        "If you say so":
+            # She holds her out
+            childhood_friend "Help me up please?"
+
+            yuri_san "As you wish *you pull her up*"
+
+            childhood_friend "You can let go now"
+
+            # let go of her hand
+            childhood_friend "Let's go, we're going to be late for school."
+
+            jump cere_condition_nested_menu_1
+
+
+
+    $ day_number = 2
+    jump start
+
+
